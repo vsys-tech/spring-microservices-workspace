@@ -6,6 +6,7 @@ import cricket.app.web.shared.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -21,7 +22,6 @@ public class TeamController {
 
     @GetMapping("/")
     public ResponseEntity<Response> findAll() {
-        System.out.println(" request from web ..... ");
         return new ResponseEntity<>(
                 new Response(this
                         .teamService
@@ -42,4 +42,6 @@ public class TeamController {
         return Mono.just(new ResponseEntity<>
                 (new Response("Added", "OK"), HttpStatus.OK));
     }
+
+
 }
